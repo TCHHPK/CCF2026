@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.idea/
+.vscode/
+
+# CareerSim 本地运行产物
+.career_sim_runner/
+
+# 模型、大型数据
+*.gguf
+*.h5ad
+*.h5
+*.zip

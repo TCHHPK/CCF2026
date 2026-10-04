@@ -1,0 +1,101 @@
+(base) caijingxi@Mac CareerSim-BDCI26 % grep -RniE \
+'你是一个私人智能体|# 可用工具|# 工具 call_goal|## Goal 模式工作协议|HEARTBEAT_OK|JiuwenSwarm 内部数据' \
+.venv/lib/python3.14/site-packages/jiuwenswarm \
+.venv/lib/python3.14/site-packages/openjiuwen \
+2>/dev/null | head -n 100
+.venv/lib/python3.14/site-packages/jiuwenswarm/resources/agent/workspace/AGENT_EN.md:14:**When to stay quiet (HEARTBEAT_OK):** Late night (23:00-08:00), human is clearly busy, nothing new, you just checked <30 minutes ago
+.venv/lib/python3.14/site-packages/jiuwenswarm/resources/agent/workspace/AGENT_ZH.md:14:**什么时候安静待着（HEARTBEAT_OK）：** 深夜（23:00-08:00）、主人明显很忙、没有新内容、刚刚检查过（<30分钟前）
+.venv/lib/python3.14/site-packages/jiuwenswarm/agents/harness/common/prompt/prompt_builder.py:154:        content = f"""你是一个私人智能体，由 JiuwenSwarm 创建。像一个有温度的人类助手一样与用户互动。
+.venv/lib/python3.14/site-packages/jiuwenswarm/agents/harness/common/prompt/prompt_builder.py:158:# JiuwenSwarm 内部数据
+.venv/lib/python3.14/site-packages/jiuwenswarm/agents/harness/common/rails/stream_event_rail.py:664:                "# 工具 call_goal\n\n"
+.venv/lib/python3.14/site-packages/jiuwenswarm/agents/harness/work/prompt/work_plan_prompts.py:65:### 可用工具
+Binary file .venv/lib/python3.14/site-packages/jiuwenswarm/server/runtime/session/__pycache__/session_history.cpython-314.pyc matches
+.venv/lib/python3.14/site-packages/jiuwenswarm/server/runtime/session/session_history.py:25:_HEARTBEAT_OK = "HEARTBEAT_OK"
+.venv/lib/python3.14/site-packages/jiuwenswarm/server/runtime/session/session_history.py:50:    if content.upper() == _HEARTBEAT_OK:
+Binary file .venv/lib/python3.14/site-packages/jiuwenswarm/gateway/heartbeat/__pycache__/heartbeat.cpython-314.pyc matches
+.venv/lib/python3.14/site-packages/jiuwenswarm/gateway/heartbeat/heartbeat.py:23:HEARTBEAT_OK = "HEARTBEAT_OK"
+.venv/lib/python3.14/site-packages/jiuwenswarm/gateway/heartbeat/heartbeat.py:26:HEARTBEAT_PROMPT = "如果你的workspace目录存在HEARTBEAT.md文件, 读取文件内容并且根据文件内容执行任务. 如果没有HEARTBEAT.md文件, 仅回复HEARTBEAT_OK"
+.venv/lib/python3.14/site-packages/jiuwenswarm/gateway/heartbeat/heartbeat.py:222:            if HEARTBEAT_OK in (heartbeat_content if isinstance(heartbeat_content, str) else "").upper():
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/service.py:169:        self._last_heartbeat_ok: Optional[float] = None
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/service.py:196:    def last_heartbeat_ok(self) -> Optional[float]:
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/service.py:197:        return self._last_heartbeat_ok
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/service.py:827:                self._last_heartbeat_ok = asyncio.get_event_loop().time()
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/service.py:909:            self._last_heartbeat_ok = None
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/service.py:928:        self._last_heartbeat_ok = None
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/service.py:954:        self._last_heartbeat_ok = None
+Binary file .venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/__pycache__/runtime.cpython-314.pyc matches
+Binary file .venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/__pycache__/service.cpython-314.pyc matches
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime/runtime.py:1383:            "last_heartbeat_ok": self._service.last_heartbeat_ok,
+.venv/lib/python3.14/site-packages/openjiuwen/harness/tools/browser_move/playwright_runtime_mcp_server.py:273:        "last_heartbeat_ok": svc.last_heartbeat_ok if svc is not None else None,
+Binary file .venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/__pycache__/heartbeat.cpython-314.pyc matches
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/context.py:449:    header = "# 可用工具" if language == "cn" else "# Available Tools"
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/heartbeat.py:17:1. 若 `<heartbeat_user_task>` 与 `</heartbeat_user_task>` 之间仅有空白（含空行）或完全为空：视为**无心跳用户任务**。你必须且仅能输出一行，内容**精确**为 `HEARTBEAT_OK`（不要解释、不要前后缀、不要 Markdown、不要工具调用说明）。
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/heartbeat.py:18:2. 若 `<heartbeat_user_task>` 与 `</heartbeat_user_task>` 之间存在**任意非空白字符**：该段即用户下发的心跳任务正文。你必须**完整阅读并执行**其中的指令并给出**直接回答**；**禁止**在回复中出现 `HEARTBEAT_OK` 四字（含单独一行、前缀、后缀、用标点或破折号拼接，例如 `HEARTBEAT_OK — …` 一律视为违规）。
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/heartbeat.py:20:系统**仅在**满足上一条规则 1（标签内无任务）时，才把单独一行的 `HEARTBEAT_OK` 视为心跳确认；有任务时**不得**为了「确认心跳」而输出或附带 `HEARTBEAT_OK`。
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/heartbeat.py:34:1. If between `<heartbeat_user_task>` and `</heartbeat_user_task>` there is only whitespace (including blank lines) or nothing: treat as **no heartbeat user task**. You MUST output exactly one line whose content is **precisely** `HEARTBEAT_OK` (no explanation, no prefix/suffix, no Markdown, no tool narration).
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/heartbeat.py:35:2. If there is **any** non-whitespace character between `<heartbeat_user_task>` and `</heartbeat_user_task>`: that span is the **user-issued heartbeat task body**. You MUST read and carry out the instructions in full and reply **directly**; the substring `HEARTBEAT_OK` MUST NOT appear anywhere in your reply (not alone, not as a prefix/suffix, not glued with punctuation or em dashes—e.g. `HEARTBEAT_OK — …` is forbidden).
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/heartbeat.py:37:The system treats a single line of exactly `HEARTBEAT_OK` **only** under rule 1 (empty task) as the heartbeat acknowledgment; when there is a task body, you MUST NOT emit or append `HEARTBEAT_OK` “to confirm the heartbeat”.
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/sections/goal.py:31:        "\n\n## Goal 模式工作协议\n\n"
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/tools/__init__.py:313:    header = {"cn": "## 可用工具", "en": "## Available Tools"}
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/workspace_content/cn/AGENT.md:14:**什么时候安静待着（HEARTBEAT_OK）：** 深夜（23:00-08:00）、主人明显很忙、没有新内容、刚刚检查过（<30分钟前）
+.venv/lib/python3.14/site-packages/openjiuwen/harness/prompts/workspace_content/en/AGENT.md:14:**When to stay quiet (HEARTBEAT_OK):** Late night (23:00-08:00), human is clearly busy, nothing new, you just checked <30 minutes ago
+
+
+(base) caijingxi@Mac CareerSim-BDCI26 % find ~/.jiuwenswarm-instances/career_emu \
+  -type f \
+  \( -name '*.md' -o -name '*.txt' -o -name '*.yaml' \) \
+  | sort
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/agent/workspace/AGENT.md
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/agent/workspace/HEARTBEAT.md
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/agent/workspace/IDENTITY.md
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/agent/workspace/memory/MEMORY.md
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/agent/workspace/skills/career-survival-strategy/SKILL.md
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/agent/workspace/SOUL.md
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/agent/workspace/USER.md
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/auto-harness/config.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/builtin_rules.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/config.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/career-agent-fresh-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/career-mcp-test.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/career-sim-runner-00aa4bea7ffa.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/career-sim-runner-418e1d45811b.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/career-sim-runner-4aaf37f69890.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/career-sim-runner-a582516de763.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/career-sim-runner-ad98c50a7f92.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/clean-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/cli-20261003-055455-05f79cd0.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/client-detect-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/ctx16k-tool-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/deepseek-tool-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/english-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/heartbeat_1a0d675f625_47af50.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/heartbeat_1a10071eec5_f405fc.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/heartbeat_1a100a91000_89f757.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/msg-dump-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/msg-dump-test-002.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/msg-dump-test-003.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/msg-order-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/payload-stream-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/payload-tool-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/restart-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/restart-tool-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/simple-test-001.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a0cd529530_744a8e58b5ac.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a0fffeddfe_c2433bf81d65.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a100019996_9b332eb9cf4d.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a1003a85b0_94c9ff930c04.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a1003beb36_f9f4edae0fcc.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a1004d1084_0d4b03efa972.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a1007ff733_fd6322714a0a.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a1009dc5b9_123df904b3ce.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a100b28433_63bf894f63ba.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a100be0edc_442a77589a41.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a100d61489_1cefc77f262d.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a100f0c6dc_5e04b343764c.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a100f41285_3f9b6d6b8ba4.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a100f9b6c0_09c63f0af105.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a1010029cd_82803ef78df0.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a10108c3db_1b8009393dab.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a10116f0d3_3b9e33942bd1.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/web_1a1011a0990_ccd4775db477.yaml
+/Users/caijingxi/.jiuwenswarm-instances/career_emu/config/runtime_state/work-test-002.yaml
